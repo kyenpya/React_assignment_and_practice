@@ -1,16 +1,30 @@
-import { useState } from 'react'
-import wh from './assets/logo-wh.png'
-import bk from './assets/logo-blk.png'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import Header from "./components/layout/Header";
+import ReviewList from "./components/ReviewList";
+import data from "./data/review-data";
+
+// we create our global state here in the app.jsx as it is the muster point for all components
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [review, setReview] = useState(data)
+     
+  const deleteReview = (id) => {
+    if (window.confirm("Are you sure you want to delete this review?"))
+    {
+      setReview(review.filter((item) => item.id !== id))
+    }
+  }
 
   return (
     <>
-       <h1>Hello Fellows!</h1>
+      <Header text="Review Application" msg="Will this work?" />
+
+      <div className="container">
+        <ReviewList reviews={review} deleteReview={deleteReview}/>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
