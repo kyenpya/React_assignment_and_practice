@@ -4,6 +4,7 @@ import Header from "./components/layout/Header";
 import ReviewList from "./components/ReviewList";
 import data from "./data/review-data";
 import ReviewStats from "./components/ReviewStats";
+import ReviewForm from "./components/ReviewForm";
 
 // we create our global state here in the app.jsx as it is the muster point for all components
 
@@ -20,8 +21,10 @@ function App() {
     <>
       <Header text="Review Application" msg="Will this work?" />
 
+      <ReviewForm />
+
       <div className="container">
-        <ReviewStats reviews={review}/>
+        <ReviewStats reviews={review} />
 
         <ReviewList reviews={review} deleteReview={deleteReview} />
       </div>
