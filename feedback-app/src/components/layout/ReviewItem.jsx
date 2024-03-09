@@ -1,8 +1,6 @@
-import { useState } from "react";
-import {FaTimes} from "react-icons/fa"
+import { FaTimes } from "react-icons/fa"
 
-// displays the cards
-function ReviewItem({ review, deleteReview}) {
+function ReviewItem({review, deleteReview}) {
 
 
 
@@ -10,12 +8,13 @@ function ReviewItem({ review, deleteReview}) {
     <>
       <div className="card">
         <div className="num-display">{review.rating}</div>
-        <div className="text-display">{review.text}</div>
-        <button className="close" onClick={()=> deleteReview(review.id)}>
-          <FaTimes/>
+        <div>{review.text}</div>
+        <button className="close" onClick={()=>deleteReview(review.id)}>
+          <FaTimes />
         </button>
       </div>
     </>
-  );
+  )
 }
-export default ReviewItem;
+
+export default ReviewItem
